@@ -11,7 +11,7 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("Welcome to EventBookingSystem, press ENTER to continue ");
+		System.out.print("Welcome to Event Booking System, press ENTER to continue ");
 		System.out.println("---------------------------");
 		String enter = sc.nextLine();
 
@@ -40,7 +40,7 @@ public class Main {
 		String response = sc.next();
 
 		if (response.equals("y")) {
-			System.out.println("How many reservation do you want to book? ");
+			System.out.print("\nHow many reservation do you want to book? ");
 			int reservedNumber = sc.nextInt();
 
 			for (int x = 0; x < reservedNumber; x++) {
@@ -50,9 +50,9 @@ public class Main {
 
 					System.err.println(e.getMessage());
 				}
-				
+
 			}
-		} else  {
+		} else {
 			System.out.println("GoodBye, thank you!");
 			System.exit(1);
 
@@ -82,12 +82,11 @@ public class Main {
 		} else {
 			System.out.println("GoodBye, thank you!");
 			System.exit(1);
-			
-			System.out.println("---------------------------");
-			int availableSeats2 = event.getTotalSeats() - event.getReservedSeats();
-			System.out.println("\nTotal Reserved Seats: " + event.getReservedSeats());
-			System.out.println("Total available: " + availableSeats2);
 
 		}
+		System.out.println("---------------------------");
+		int availableSeats2 = event.getTotalSeats() - event.getReservedSeats();
+		System.out.println("\nReserved Seats: " + event.getReservedSeats());
+		System.out.println("Total available: " + availableSeats2);
 	}
 }
