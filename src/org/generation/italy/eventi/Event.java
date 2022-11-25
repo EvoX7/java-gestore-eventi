@@ -31,7 +31,7 @@ public class Event {
 
 	public void setDate(LocalDate date) throws Exception {
 		if (date.isBefore(LocalDate.now())) {
-			throw new Exception("Not a valid date");
+			throw new Exception("Not a valid date, please restart the process");
 		}
 		this.date = date;
 	}
