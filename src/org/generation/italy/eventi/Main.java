@@ -3,6 +3,8 @@ package org.generation.italy.eventi;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import javax.imageio.plugins.tiff.GeoTIFFTagSet;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -11,26 +13,12 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("Welcome to Event Booking System, press ENTER to continue ");
-		System.out.println("---------------------------");
-		String enter = sc.nextLine();
-
-		System.out.print("Please insert event name: ");
-		String eventTitle = sc.nextLine();
-
-		System.out.print("Please insert date for this event (YYYY-MM-DD): ");
-		String date = sc.nextLine();
-		LocalDate dateEvent = LocalDate.parse(date);
-
-		System.out.print("Please insert all available seats: ");
-		int seats = sc.nextInt();
-
 		try {
-			event = new Event(eventTitle, dateEvent, seats);
+			event = new Event("Beautiful Summer", LocalDate.now(), 1000);
 
 			System.out.println("---------------------------");
 			System.out.println("Event created:\n");
-			System.out.println(event + "\n" + "Total event seats: " + seats+ "\n");
+			System.out.println(event + "\n" + "Total event seats: " + event.getTotalSeats() + "\n");
 
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
@@ -90,5 +78,7 @@ public class Main {
 		int availableSeats2 = event.getTotalSeats() - event.getReservedSeats();
 		System.out.println("\nYour reserved seats: " + event.getReservedSeats());
 		System.out.println("Total available: " + availableSeats2);
+		sc.close();
 	}
+
 }

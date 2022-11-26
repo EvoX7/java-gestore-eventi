@@ -4,29 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Planner {
-	private String title;
-	private List<Event> events;
+	private String eventTitle;
+	private List<Event> eventsProgramme;
 
 	public Planner(String title) {
 		
-		setTitle(title);
-		this.events = new ArrayList<>();
+		setEventTitle(title);
+		eventsProgramme = new ArrayList<>();
 	}
 
-	public String getTitle() {
-		return title;
+	public String getEventTitle() {
+		return eventTitle;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setEventTitle(String title) {
+		this.eventTitle = title;
 	}
 
-	public List<Event> getEvent() {
-		return events;
+	public List<Event> eventsProgramme() {
+		return eventsProgramme;
 	}
 
-	public void setEvent(List<Event> event) {
-		this.events = event;
+	public void setEventsProgramme(List<Event> event) {
+		this.eventsProgramme = event;
 	}
 
 }
