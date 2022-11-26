@@ -1,6 +1,8 @@
 package org.generation.italy.eventi;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,32 +10,41 @@ public class Main {
 
 	public static void main(String[] args) {
 
+//		Milestone 4
+//	    -----------------------------------------------------------------------------------------
+
+		Concert m1 = new Concert("Mariachi Fest\n", LocalDate.now().plusDays(15), 100, LocalTime.now(),
+				BigDecimal.valueOf(73d));
+		System.out.println(m1);
+
+	}
+
 //		Milestone 3
 //		-----------------------------------------------------------------------------------------
 
-		Planner plan = new Planner("Summer Festival");
-
-		Event e1 = new Event("Rock in Town", LocalDate.now().plusDays(12), 500);
-		Event e2 = new Event("Dance '90", LocalDate.now().plusDays(11), 200);
-		Event e3 = new Event("Cars Exposition", LocalDate.now().plusDays(10), 300);
-		Event e4 = new Event("Jam Session", LocalDate.now().plusDays(10), 100);
-
-		plan.addEvent(e1);
-		plan.addEvent(e2);
-		plan.addEvent(e3);
-		plan.addEvent(e4);
-
-		System.out.println(plan);
-
-		List<Event> tenDaysEvents = plan.getEventsByDate(LocalDate.now().plusDays(10));
-		System.out.println( tenDaysEvents );
-
-		int eventsCount = plan.getEventCount();
-		System.out.println("Numbers of Events: " + eventsCount);
-
-		boolean result = plan.clearEvents();
-		result = plan.clearEvents();
-		System.out.println("Events cancelled: " + result);
+//		Planner plan = new Planner("Summer Festival");
+//
+//		Event e1 = new Event("Rock in Town", LocalDate.now().plusDays(12), 500);
+//		Event e2 = new Event("Dance '90", LocalDate.now().plusDays(11), 200);
+//		Event e3 = new Event("Cars Exposition", LocalDate.now().plusDays(10), 300);
+//		Event e4 = new Event("Jam Session", LocalDate.now().plusDays(10), 100);
+//
+//		plan.addEvent(e1);
+//		plan.addEvent(e2);
+//		plan.addEvent(e3);
+//		plan.addEvent(e4);
+//
+//		System.out.println(plan);
+//
+//		List<Event> tenDaysEvents = plan.getEventsByDate(LocalDate.now().plusDays(10));
+//		System.out.println( tenDaysEvents );
+//
+//		int eventsCount = plan.getEventCount();
+//		System.out.println("Numbers of Events: " + eventsCount);
+//
+//		boolean result = plan.clearEvents();
+//		result = plan.clearEvents();
+//		System.out.println("Events cancelled: " + result);
 
 //		Milestone 1 & 2
 //		-----------------------------------------------------------------------------------------
@@ -103,5 +114,7 @@ public class Main {
 //		System.out.println("Total available: " + availableSeats2);
 //		sc.close();
 
-	}
+//	}
+//}
+
 }
