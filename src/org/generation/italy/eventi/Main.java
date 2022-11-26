@@ -13,17 +13,11 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 
-		try {
-			event = new Event("Beautiful Summer", LocalDate.now(), 1000);
+		event = new Event("Beautiful Summer", LocalDate.now(), 1000);
 
-			System.out.println("---------------------------");
-			System.out.println("Event created:\n");
-			System.out.println(event + "\n" + "Total event seats: " + event.getTotalSeats() + "\n");
-
-		} catch (Exception e) {
-			System.err.println(e.getMessage());
-
-		}
+		System.out.println("---------------------------");
+		System.out.println("Event created:\n");
+		System.out.println(event + "\n" + "Total event seats: " + event.getTotalSeats() + "\n");
 
 		System.out.print("Do you want to add a reservation [y/n] ");
 		String response = sc.next();
