@@ -9,7 +9,7 @@ public class Event {
 	private int totalSeats;
 	private int reservedSeats = 0;
 
-	public Event(String title, LocalDate date, int totalSeats) {
+	public Event(String title, LocalDate date, int totalSeats) throws Exception {
 
 		setTitle(title);
 		setDate(date);

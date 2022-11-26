@@ -25,7 +25,7 @@ public class Planner {
 		return eventsProgramme;
 	}
 
-	public void setEventsProgramme(List<Event> event) {
+	private void setEventsProgramme(List<Event> event) {
 		this.eventsProgramme = event;
 	}
 
