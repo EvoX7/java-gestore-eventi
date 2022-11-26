@@ -9,7 +9,7 @@ public class Event {
 	private int totalSeats;
 	private int reservedSeats = 0;
 
-	public Event(String title, LocalDate date, int totalSeats) throws Exception {
+	public Event(String title, LocalDate date, int totalSeats) throws IllegalArgumentException{
 
 		setTitle(title);
 		setDate(date);
@@ -29,9 +29,9 @@ public class Event {
 		return date;
 	}
 
-	public void setDate(LocalDate date) throws Exception {
+	public void setDate(LocalDate date) throws IllegalArgumentException {
 		if (date.isBefore(LocalDate.now())) {
-			throw new Exception("Not a valid date, please restart the process");
+			throw new IllegalArgumentException("Not a valid date, please restart the process");
 		}
 		this.date = date;
 	}

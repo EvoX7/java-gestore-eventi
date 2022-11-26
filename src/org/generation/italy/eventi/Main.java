@@ -1,83 +1,107 @@
 package org.generation.italy.eventi;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
-
-import javax.imageio.plugins.tiff.GeoTIFFTagSet;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		Event event = null;
+//		Milestone 3
+//		-----------------------------------------------------------------------------------------
 
-		Scanner sc = new Scanner(System.in);
+		Planner plan = new Planner("Summer Festival");
 
-		try {
-			event = new Event("Beautiful Summer", LocalDate.now(), 1000);
+		Event e1 = new Event("Rock in Town", LocalDate.now().plusDays(12), 500);
+		Event e2 = new Event("Dance '90", LocalDate.now().plusDays(11), 200);
+		Event e3 = new Event("Cars Exposition", LocalDate.now().plusDays(10), 300);
+		Event e4 = new Event("Jam Session", LocalDate.now().plusDays(10), 100);
 
-			System.out.println("---------------------------");
-			System.out.println("Event created:\n");
-			System.out.println(event + "\n" + "Total event seats: " + event.getTotalSeats() + "\n");
-		} catch (Exception e) {
+		plan.addEvent(e1);
+		plan.addEvent(e2);
+		plan.addEvent(e3);
+		plan.addEvent(e4);
 
-			System.err.println(e.getMessage());
-		}
+		System.out.println(plan);
 
-		System.out.print("Do you want to add a reservation [y/n] ");
-		String response = sc.next();
+		List<Event> tenDaysEvents = plan.getEventsByDate(LocalDate.now().plusDays(10));
+		System.out.println( tenDaysEvents );
 
-		if (response.equals("y")) {
-			System.out.print("\nHow many seats do you want to book? ");
-			int reservedNumber = sc.nextInt();
+		int eventsCount = plan.getEventCount();
+		System.out.println("Numbers of Events: " + eventsCount);
 
-			for (int x = 0; x < reservedNumber; x++) {
-				try {
-					event.bookEvent();
-				} catch (Exception e) {
+		boolean result = plan.clearEvents();
+		result = plan.clearEvents();
+		System.out.println("Events cancelled: " + result);
 
-					System.err.println(e.getMessage());
-				}
+//		Milestone 1 & 2
+//		-----------------------------------------------------------------------------------------
 
-			}
-		} else {
-			System.out.println("GoodBye, thank you!");
-			System.exit(1);
+//		Event event = null;
+//
+//		Scanner sc = new Scanner(System.in);
+//
+//		event = new Event("Beautiful Summer", LocalDate.now(), 1000);
+//
+//		System.out.println("---------------------------");
+//		System.out.println("Event created:\n");
+//		System.out.println(event + "\n" + "Total event seats: " + event.getTotalSeats() + "\n");
+//
+//		System.out.print("Do you want to add a reservation [y/n] ");
+//		String response = sc.next();
+//
+//		if (response.equals("y")) {
+//			System.out.print("\nHow many seats do you want to book? ");
+//			int reservedNumber = sc.nextInt();
+//
+//			for (int x = 0; x < reservedNumber; x++) {
+//				try {
+//					event.bookEvent();
+//				} catch (Exception e) {
+//
+//					System.err.println(e.getMessage());
+//				}
+//
+//			}
+//		} else {
+//			System.out.println("GoodBye, thank you!");
+//			System.exit(1);
+//
+//		}
+//
+//		System.out.println("---------------------------");
+//		int availableSeats = event.getTotalSeats() - event.getReservedSeats();
+//		System.out.println("\nYour reserved seats: " + event.getReservedSeats());
+//		System.out.println("Total available: " + availableSeats);
+//
+//		System.out.println("---------------------------");
+//		System.out.println("Do you want to cancel a reservations? [y/n] ");
+//
+//		String response2 = sc.next();
+//
+//		if (response2.equals("y")) {
+//			System.out.println("\nHow many reservations do you want to cancel? ");
+//			int canceluserRes = sc.nextInt();
+//			for (int x = 0; x < canceluserRes; x++) {
+//				try {
+//					event.cancelReservation();
+//				} catch (Exception e) {
+//
+//					System.err.println(e.getMessage());
+//				}
+//
+//			}
+//		} else {
+//			System.out.println("GoodBye, thank you!");
+//			System.exit(1);
+//
+//		}
+//		System.out.println("---------------------------");
+//		int availableSeats2 = event.getTotalSeats() - event.getReservedSeats();
+//		System.out.println("\nYour reserved seats: " + event.getReservedSeats());
+//		System.out.println("Total available: " + availableSeats2);
+//		sc.close();
 
-		}
-
-		System.out.println("---------------------------");
-		int availableSeats = event.getTotalSeats() - event.getReservedSeats();
-		System.out.println("\nYour reserved seats: " + event.getReservedSeats());
-		System.out.println("Total available: " + availableSeats);
-
-		System.out.println("---------------------------");
-		System.out.println("Do you want to cancel a reservations? [y/n] ");
-
-		String response2 = sc.next();
-
-		if (response2.equals("y")) {
-			System.out.println("\nHow many reservations do you want to cancel? ");
-			int canceluserRes = sc.nextInt();
-			for (int x = 0; x < canceluserRes; x++) {
-				try {
-					event.cancelReservation();
-				} catch (Exception e) {
-
-					System.err.println(e.getMessage());
-				}
-
-			}
-		} else {
-			System.out.println("GoodBye, thank you!");
-			System.exit(1);
-
-		}
-		System.out.println("---------------------------");
-		int availableSeats2 = event.getTotalSeats() - event.getReservedSeats();
-		System.out.println("\nYour reserved seats: " + event.getReservedSeats());
-		System.out.println("Total available: " + availableSeats2);
-		sc.close();
 	}
-
 }
